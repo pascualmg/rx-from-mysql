@@ -1,10 +1,17 @@
+"use strict";
+
 var rxFromMysql = require('./rx-from-mysql');
+
+var config = {
+    host: '192.168.50.144',
+    user: 'root',
+    password: ''
+};
 
 const sql100Articles = 'select * from web.articulos limit 100';
 
-rowDataPacket$ = rxFromMysql(sql100Articles);
-var xml = XMLDocument;
-XMLDocument.addC
+var rowDataPacket$ = rxFromMysql(sql100Articles, config);
+
 rowDataPacket$
     .map(function (next) {
         return {

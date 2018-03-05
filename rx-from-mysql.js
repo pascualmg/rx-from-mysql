@@ -1,14 +1,23 @@
-var Rx = require('rx')
+"use strict";
+
+var Rx = require('rx');
 const mysql = require('mysql');
 
-function createRXObservableFromMySQLQuery(sql) {
-
-    const con = mysql.createConnection({
-        host: '192.168.50.144',
-        user: 'root',
-        password: 'IhtqLg24vbAi'
+function getMysqlConn(config) {
+    var con = mysql.createConnection({
+        host: config.host,
+        user: config.user,
+        password: config.password
     });
+    return con;
+}
 
+
+function createRXObservableFromMySQLQuery(sql, config) {
+
+    var con = getMysqlConn(config);
+
+    var rowDataPacket$;
     return rowDataPacket$ = Rx.Observable.create(function subscribe(observer) {
         con.connect(function (errMysqlConnection) {
             if (errMysqlConnection) {
@@ -31,11 +40,11 @@ function createRXObservableFromMySQLQuery(sql) {
             console.log('Connected!');
         });
 
-        return function(){
+        return function () {
             con.destroy();
         };
     });
 }
 
 module = module || {};//ES5 retro-compatibility
-module.exports =  createRXObservableFromMySQLQuery;
+module.exports = createRXObservableFromMySQLQuery;
