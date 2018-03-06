@@ -2,14 +2,14 @@
 var rxFromMysql = require('./rx-from-mysql');
 
 var config = {
-    host: '192.168.50.144',
+    host: '192.168.1.1',
     user: 'root',
-    password: 'IhtqLg24vbAi'
+    password: 'yourSecretPassword'
 };
 
-var sql100Articles = 'select * from web.articulos limit 100';
+var query = 'select * from web.articulos limit 100';
 
-var rowDataPacket$ = rxFromMysql(sql100Articles, config);
+var rowDataPacket$ = rxFromMysql(query, config);
 
 rowDataPacket$
     //.map

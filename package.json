@@ -1,6 +1,6 @@
 {
   "name": "rx-from-mysql",
-  "version": "1.0.6",
+  "version": "1.0.7",
   "description": "",
   "main": "rx-from-mysql.js",
   "scripts": {
