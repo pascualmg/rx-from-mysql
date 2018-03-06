@@ -36,3 +36,9 @@ rowDataPacket$
         }
     );
 ```
+
+##Instalation:
+
+```
+npm install rx-from-mysql --save
+```
