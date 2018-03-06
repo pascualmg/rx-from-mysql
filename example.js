@@ -1,11 +1,10 @@
 "use strict";
-
 var rxFromMysql = require('./rx-from-mysql');
 
 var config = {
     host: '192.168.50.144',
     user: 'root',
-    password: 'yourPassword'
+    password: 'IhtqLg24vbAi'
 };
 
 var sql100Articles = 'select * from web.articulos limit 100';
