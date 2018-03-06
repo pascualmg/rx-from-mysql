@@ -37,8 +37,11 @@ rowDataPacket$
     );
 ```
 
-##Instalation:
+##Install:
 
 ```
 npm install rx-from-mysql --save
 ```
+
+##from git 
+git clone https://github.com/pascualmg/rx-from-mysql.git
