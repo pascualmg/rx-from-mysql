@@ -3,16 +3,6 @@
 var Rx = require('rx');
 const mysql = require('mysql');
 
-function getMysqlConn(config) {
-    var con = mysql.createConnection({
-        host: config.host,
-        user: config.user,
-        password: config.password
-    });
-    return con;
-}
-
-
 function createRXObservableFromMySQLQuery(sql, config) {
 
     var con = getMysqlConn(config);
@@ -46,5 +36,15 @@ function createRXObservableFromMySQLQuery(sql, config) {
     });
 }
 
-module = module || {};//ES5 retro-compatibility
+function getMysqlConn(config) {
+    var con = mysql.createConnection({
+        host: config.host,
+        user: config.user,
+        password: config.password
+    });
+    //todo: more checks
+    return con;
+}
+
+var module = module || {};//ES5 retro-compatibility
 module.exports = createRXObservableFromMySQLQuery;
